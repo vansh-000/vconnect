@@ -78,7 +78,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
             title={
               (meeting as Call).state?.custom?.description ||
               (meeting as CallRecording).filename?.substring(0, 20) ||
-              'No Description'
+              'Personal Meeting Room'
             }
             date={
               (meeting as Call).state?.startsAt?.toLocaleString() ||
@@ -100,10 +100,18 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
           />
         ))
       ) : (
-        <h1 className="text-2xl font-bold text-white">Thanks for using VConnect!!!<br/>{noCallsMessage}</h1>
+        <h1 className="text-2xl font-bold text-white">Thanks for using VConnect!!!<br />{noCallsMessage}</h1>
       )}
     </div>
   );
+};
+
+
+export const getFirstUpcomingCallTime = () => {
+  const { endedCalls, upcomingCalls, callRecordings, isLoading } =
+    useGetCalls();
+  if (!upcomingCalls || upcomingCalls.length === 0) return null;
+  return upcomingCalls[0].state?.startsAt;
 };
 
 export default CallList;

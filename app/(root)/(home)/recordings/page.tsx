@@ -1,15 +1,13 @@
-import React from 'react';
+import CardList from '@/components/CardList';
 
-type pageProps = {
-
-};
-
-const Recordings: React.FC<pageProps> = () => {
-
+const PreviousPage = () => {
     return (
         <section className="flex size-full flex-col gap-10 text-white">
-            <h1 className="text-xl font-bold lg:text-3xl">Recordings</h1>
+            <h1 className="text-3xl font-bold">Recordings</h1>
+
+            <CardList type="recordings" />
         </section>
-    )
-}
-export default Recordings;
+    );
+};
+
+export default PreviousPage;
