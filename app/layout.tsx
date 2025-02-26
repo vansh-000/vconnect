@@ -8,6 +8,7 @@ import {
   UserButton,
 } from '@clerk/nextjs'
 import "@stream-io/video-react-sdk/dist/css/styles.css";
+import 'react-datepicker/dist/react-datepicker.css';
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
@@ -24,8 +25,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "VConnect",
-  description: "A vedio conferencing application to meet your needs",
+  description: "A video conferencing application to meet your needs",
+  icons: {
+    icon: "/icons/logo.png",
+  },
 };
+
 
 export default function RootLayout({
   children,

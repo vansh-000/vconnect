@@ -21,6 +21,7 @@ import {
 } from './ui/dropdown-menu';
 import Loader from './Loader';
 import { cn } from '@/lib/utils';
+import EndCallButton from './EndCallButton';
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right';
 
@@ -92,6 +93,7 @@ const MeetingRoom = () => {
             <Users size={20} className="text-white" />
           </div>
         </button>
+        {!isPersonalRoom && <EndCallButton />}
       </div>
     </section>
   );
