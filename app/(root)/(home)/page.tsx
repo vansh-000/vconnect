@@ -1,16 +1,11 @@
 "use client"
-import { getFirstUpcomingCallTime } from '@/components/CardList';
+import { GetFirstUpcomingCallTime } from '@/components/CardList';
 import MeetingList from '@/components/MeetingLists';
-import { useGetCalls } from '@/hooks/useGetCalls';
 import React from 'react'
 
 const Home = () => {
   const now = new Date();
-  const { upcomingCalls } = useGetCalls();
-  const firstUpcomingCallTime = getFirstUpcomingCallTime();
-
-  console.log("First upcoming call time:",);
-
+  const firstUpcomingCallTime = GetFirstUpcomingCallTime();
   const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
   const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
 
@@ -23,7 +18,6 @@ const Home = () => {
               ? `Upcoming Meeting at: ${firstUpcomingCallTime.toLocaleString()}`
               : "No upcoming meetings"}
           </h2>
-
           <div className="flex flex-col gap-2">
             <h1 className="text-4xl font-extrabold lg:text-7xl">{time}</h1>
             <p className="text-lg font-medium lg:text-2xl">{date}</p>

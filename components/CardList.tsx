@@ -106,9 +106,8 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
   );
 };
 
-
-export const getFirstUpcomingCallTime = () => {
-  const { endedCalls, upcomingCalls, callRecordings, isLoading } =
+export const GetFirstUpcomingCallTime = () => {
+  const { upcomingCalls} =
     useGetCalls();
   if (!upcomingCalls || upcomingCalls.length === 0) return null;
   return upcomingCalls[0].state?.startsAt;
